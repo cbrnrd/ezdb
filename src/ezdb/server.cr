@@ -1,5 +1,4 @@
 require "socket"
-require "out"
 require "logger"
 require "json"
 
@@ -26,7 +25,7 @@ class Server
     server.recv_buffer_size = bufsize
     data = Hash(String, String).new
     logger.warn("Forking daemon to background.")
-    fork do
+#    fork do
       loop do
         socket = server.accept
         logger.info("Got connection. Socket: #{socket}")
@@ -83,7 +82,7 @@ class Server
           end
         end
       end
-    end
+#    end
   end
 
 end
