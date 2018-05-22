@@ -1,0 +1,9 @@
+name: ezdb
+version: 0.1.0
+
+authors:
+  - cbrnrd <0xCB@protonmail.com>
+
+crystal: 0.24.2
+
+license: MIT
