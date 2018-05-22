@@ -1,6 +1,6 @@
 # ezdb
 
-Welcome to ezdb! ezdb is a small and simple NoSQL database. More languages are going to come in the future.
+Welcome to ezdb! ezdb is a small and simple in-memory NoSQL database. This repo is the original project. More languages are going to come in the future.
 
 ## Installation
 
