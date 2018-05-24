@@ -15,14 +15,26 @@ dependencies:
     github: cbrnrd/ezdb
 ```
 
+or clone the repo and run the install script:
+
+```
+git clone https://github.com/cbrnrd/ezdb
+cd ezdb
+./install.sh
+```
+
 ## Usage
 
 ```crystal
 require "ezdb"
 ```
 
-To start the daemon, build main.cr and run it.
+## Starting the daemon
 
+After running the install script, run: `service ezdb start` or `systemctl start ezdb`
+
+#### Adding service to startup
+Run: `systemctl enable ezdb`
 
 ## Contributing
 
