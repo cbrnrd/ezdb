@@ -36,6 +36,10 @@ After running the install script, run: `service ezdb start` or `systemctl start 
 #### Adding service to startup
 Run: `systemctl enable ezdb`
 
+## Client implementations
+* [ezdb4j](https://github.com/cbrnrd/ezdb4j) - Java client library
+* Python, Ruby, and Go libraries are coming in the future
+
 ## Contributing
 
 1. Fork it ( https://github.com/cbrnrd/ezdb/fork )
