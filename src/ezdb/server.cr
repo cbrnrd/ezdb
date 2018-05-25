@@ -24,7 +24,6 @@ class Server
     logger.info("recv_buffer_size is set to 4096")
     server.recv_buffer_size = bufsize
     data = Hash(String, String).new
-    logger.warn("Forking daemon to background.")
 #    fork do
       loop do
         socket = server.accept
