@@ -6,7 +6,6 @@ After=network.target
 Type=simple
 Restart=always
 RestartSec=1
-User=root
 ExecStart=/usr/bin/ezdb
 
 [Install]

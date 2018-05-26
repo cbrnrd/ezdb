@@ -2,6 +2,7 @@
 /bin/
 /.shards/
 ezdb.dwarf
+ezdb_*_all.deb
 
 # Libraries don't need dependency lock
 # Dependencies will be locked in application that uses them
