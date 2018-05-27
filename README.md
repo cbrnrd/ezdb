@@ -15,12 +15,10 @@ dependencies:
     github: cbrnrd/ezdb
 ```
 
-or clone the repo and run the install script:
+or grab the install script:
 
 ```
-git clone https://github.com/cbrnrd/ezdb
-cd ezdb
-./install.sh
+curl https://git.io/vhIl7 | sh
 ```
 
 ## Usage
