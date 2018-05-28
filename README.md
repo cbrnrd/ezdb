@@ -18,7 +18,7 @@ dependencies:
 or grab the install script:
 
 ```
-curl https://git.io/vhIl7 | sh
+curl -fsSL https://git.io/vhIl7 | sh
 ```
 
 ## Usage
