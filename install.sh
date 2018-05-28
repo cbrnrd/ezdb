@@ -9,6 +9,10 @@ if ! command -v crystal 2>/dev/null ; then
   apt-get update
   sudo apt-get install build-essential crystal
 fi
+
+git clone https://github.com/cbrnrd/ezdb
+cd ezdb
+
 echo -e "Building ezdb..."
 
 crystal build --release src/ezdb.cr
