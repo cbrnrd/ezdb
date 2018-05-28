@@ -62,6 +62,14 @@ class Server
                   data[key] = value
 
                   socket.puts(value)
+                elsif command == "qset"
+                  if request.size < 3
+                    socket.puts("invalid syntax. -> qset key value")
+                    next
+                  end
+                  value = request[2]
+
+                  data[key] = value
                 elsif command == "get"
                   if key == "*"
                     socket.puts(data.to_pretty_json)
