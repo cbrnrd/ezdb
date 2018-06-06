@@ -2,6 +2,7 @@
 # ezdb
 [![Donations Badge](https://yourdonation.rocks/images/badge.svg)](http://carterbrainerd.me/donations/)
 [![Build Status](https://travis-ci.org/cbrnrd/ezdb.svg?branch=master)](https://travis-ci.org/cbrnrd/ezdb)
+![Lighthouse Score 70/100](https://lighthouse-badge.appspot.com/?score=70)
 
 Welcome to ezdb! ezdb is a small and simple in-memory NoSQL database. This repo is the original project. More languages are going to come in the future.
 
