@@ -50,3 +50,8 @@ Run: `systemctl enable ezdb`
 ## Contributors
 
 - [cbrnrd](https://github.com/cbrnrd) cbrnrd - creator, maintainer
+
+
+<p align="center">
+  <img height="100" width="300" src="https://i.imgur.com/obHmDnX.png">
+</p>
