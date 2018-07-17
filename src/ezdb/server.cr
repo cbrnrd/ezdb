@@ -1,95 +1,46 @@
 require "socket"
-require "logger"
-require "json"
+require "./memory"
+require "./logger"
+require "./request"
+require "./logo"
+require "./loop/*"
 
 module Ezdb
 class Server
+  @logger: Ezdb::Logger = Ezdb::Logger.instance
+  @@memory: Ezdb::Memory(String, Array(String)) = Ezdb::Memory(String, Array(String)).new
 
-  @port = 28468
-
-  #
-  # Initializes the Ezdb::Server and sets @port
-  #
-  def initialize(port=28468)
-    @port = port
+  def initialize(@hostname : String = "127.0.0.1", @port : Int8 | Int16 | Int32 | Int64 = 28468)
+    @server = TCPServer.new(@hostname, @port)
+    @server.tcp_nodelay = true
+    @server.recv_buffer_size = 4096
   end
 
-  #
-  # Starts the listener in a forked process.
-  #
-  def start(bufsize=4096)
-    logger = Logger.new(STDOUT)
-    logger.info("Starting listening daemon on tcp/#{@port}")
-    server = TCPServer.new("localhost", @port)
-    logger.info("recv_buffer_size is set to 4096")
-    server.recv_buffer_size = bufsize
-    data = Hash(String, String).new
-#    fork do
-      loop do
-        socket = server.accept
-        logger.info("Got connection. Socket: #{socket}")
-        if socket
-          spawn do
-            socket.puts("ezdb v#{Ezdb::VERSION}")
-            loop do
-              if request = socket.gets
-                request = request.split(" ").map{|item| item.strip }
+  def start
+    fork do
+      logo
+      handle_trap
+      start_conn_loop
+    end
+  end
 
-                if request[0] == "?" || request[0] == ".help"
-                  socket.puts(".help/? - show this message\n.exit - exit the console")
-                  next
-                end
+  private def logo
+    Ezdb::Logo.render(@logger)
+  end
 
-                if request[0] == ".exit"
-                  socket.close
-                end
+  private def handle_trap
+    Ezdb::EventLoop::Signal.new.watch(@server)
+  end
 
-                if request.size == 1
-                  socket.puts("invalid")
-                  next
-                end
+  private def start_conn_loop
+    @logger.info("Ezdb running at #{@hostname}:#{@port}")
+    channel = Channel::Unbuffered(Ezdb::Request).new
+    Ezdb::EventLoop::Channel(Ezdb::Request).new(channel).start
+    Ezdb::EventLoop::Connection.new(@server, channel).start
+  end
 
-                command = request[0]
-                key = request[1]
-
-                if command == "set"
-                  if request.size < 3
-                    socket.puts("invalid syntax. -> set key value")
-                    next
-                  end
-                  value = request[2]
-
-                  data[key] = value
-
-                  socket.puts(value)
-                elsif command == "qset"
-                  if request.size < 3
-                    socket.puts("invalid syntax. -> qset key value")
-                    next
-                  end
-                  value = request[2]
-
-                  data[key] = value
-                elsif command == "get"
-                  if key == "*"
-                    socket.puts(data.to_pretty_json)
-                    next
-                  end
-                  value = data[key]
-
-                  socket.puts(value)
-                elsif command == "unset"
-                  data[key] = ""
-                  socket.puts(key)
-                else
-                  socket.puts("error: #{command} is not a valid command")
-                end
-              end
-            end
-          end
-        end
-      end
-#    end
+  def self.memory
+    @@memory
   end
 
 end

@@ -1,4 +1,2 @@
-require "./ezdb/*"
-
-server = Ezdb::Server.new
-server.start
+module Ezdb
+end

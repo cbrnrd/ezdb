@@ -15,7 +15,7 @@ cd ezdb
 
 echo -e "Building ezdb..."
 
-crystal build --release src/ezdb.cr
+crystal build --release src/ezdb/main.cr
 
 sudo mv ezdb /usr/local/bin/ezdb
 username=$(whoami)
