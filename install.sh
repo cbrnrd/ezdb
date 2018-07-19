@@ -15,14 +15,16 @@ cd ezdb
 
 echo -e "Building ezdb..."
 
-crystal build --release src/ezdb/main.cr
+make install
 
-sudo mv ezdb /usr/local/bin/ezdb
+sudo cp bin/ezdb /usr/local/bin/ezdb
 username=$(whoami)
 
 sudo sed -i "s/root/$username/g" services/ezdb.service
 
 sudo cp services/ezdb.service /lib/systemd/system/ezdb.service
+
+sudo cp man/ezdb.1 /usr/local/share/man/man1/
 
 echo -e "Starting ezdb service..."
 

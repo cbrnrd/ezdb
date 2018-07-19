@@ -4,7 +4,6 @@ BOJACK_BIN ?= $(shell which ezdb)
 PREFIX ?= /usr/local
 
 build:
-	$(CRYSTAL_BIN) deps
 	$(CRYSTAL_BIN) build --release -o bin/ezdb src/ezdb/main.cr $(CRFLAGS)
 
 clean:
@@ -15,10 +14,13 @@ test:
 
 spec: test
 
-install: build
+deps:
+	$(CRYSTAL_BIN) deps
+
+install: deps build
 	mkdir -p $(PREFIX)/bin
 	cp ./bin/ezdb $(PREFIX)/bin
-	# TODO add systemd script
+	$(shell sh scripts/install_service.sh)
 
 reinstall: build
 	cp -rf ./bin/ezdb $(BOJACK_BIN)

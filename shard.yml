@@ -1,5 +1,5 @@
 name: ezdb
-version: 0.1.0
+version: 0.2.0
 
 authors:
   - cbrnrd <0xCB@protonmail.com>
@@ -9,10 +9,6 @@ crystal: 0.24.2
 license: MIT
 
 dependencies:
-  dispatch:
-    github: bmulvihill/dispatch
-    version: 0.1.0
-
   commander:
     github: mrrooijen/commander
     version: ~> 0.3.3
