@@ -1,4 +1,5 @@
 require "./constants"
+#require "./console"
 
 module Ezdb
   class Logo
@@ -11,9 +12,10 @@ module Ezdb
         |  __/ / (_| | |_) |
         \___/___\__,_|_.__/
 
-
-      ezdb vVERSION
       HERE
+
+#      logo << "ezdb v#{Ezdb::Console.bright}VERSION#{Ezdb::Console.reset}\n"
+       logo += "ezdb vVERSION"
 
       puts logo.gsub("VERSION", Ezdb::VERSION)
     end

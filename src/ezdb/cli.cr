@@ -16,7 +16,7 @@ module Ezdb
           command.long = command.short
 
           command.run do
-            puts "ezdb v#{Ezdb::VERSION}"
+            puts "ezdb v\u001b[37;1m#{Ezdb::VERSION}\u001b[0m"
           end
         end
 
@@ -53,6 +53,14 @@ module Ezdb
             flag.description = "Log severity."
           end
 
+          command.flags.add do |flag|
+            flag.name = "background"
+            flag.long = "--background"
+            flag.default = false
+            flag.short = "-b"
+            flag.description = "Run the daemon in the background."
+          end
+
           command.run do |options, arguments|
             output =  if options.string["log"].empty?
                         STDOUT
@@ -63,7 +71,7 @@ module Ezdb
             Ezdb::Logger.build(output, options.int["log-level"].as(Int32),
                                  options.string["hostname"], options.int["port"].as(Int32))
 
-            Ezdb::Server.new(options.string["hostname"], options.int["port"]).start
+            Ezdb::Server.new(options.string["hostname"], options.int["port"], options.bool["background"]).start
           end
         end
 

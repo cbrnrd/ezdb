@@ -4,18 +4,21 @@ require "ezdb-client"
 module Ezdb
 class Console
 
-  #TODO
   class Colors
     def self.purple
-      ""
+      "\u001b[35m"
     end
 
     def self.red
-      ""
+      "\u001b[31m"
     end
 
     def self.reset
-      ""
+      "\u001b[0m"
+    end
+
+    def self.bright
+      "\u001b[37;1m"
     end
   end
 
