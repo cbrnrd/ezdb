@@ -1,4 +1,5 @@
 CRYSTAL_BIN ?= $(shell which crystal)
+SHARDS_BIN ?= $(shell which shards)
 BOJACK_BIN ?= $(shell which ezdb)
 # `command -v` doesn't work here for some reason
 PREFIX ?= /usr/local
@@ -15,7 +16,7 @@ test:
 spec: test
 
 deps:
-	$(CRYSTAL_BIN) deps
+	$(SHARDS_BIN)
 
 install: deps build
 	mkdir -p $(PREFIX)/bin
