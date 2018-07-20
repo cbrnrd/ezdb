@@ -1,6 +1,6 @@
 CRYSTAL_BIN ?= $(shell which crystal)
 SHARDS_BIN ?= $(shell which shards)
-BOJACK_BIN ?= $(shell which ezdb)
+EZDB_BIN ?= $(shell which ezdb)
 # `command -v` doesn't work here for some reason
 PREFIX ?= /usr/local
 
@@ -24,4 +24,4 @@ install: deps build
 	$(shell sh scripts/install_service.sh)
 
 reinstall: build
-	cp -rf ./bin/ezdb $(BOJACK_BIN)
+	cp -rf ./bin/ezdb $(EZDB_BIN)
