@@ -4,4 +4,4 @@ install:
   - shards install
 script:
   - crystal env
-  - crystal build --release src/ezdb.cr
+  - crystal build --release src/ezdb/main.cr
