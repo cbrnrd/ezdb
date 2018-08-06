@@ -3,17 +3,15 @@
 set -e
 
 if ! command -v crystal 2>/dev/null ; then
-  echo -e "Installing crystal..."
-  apt-key adv --keyserver keys.gnupg.net --recv-keys 09617FD37CC06B54
-  echo "deb https://dist.crystal-lang.org/apt crystal main" > /etc/apt/sources.list.d/crystal.list
-  apt-get update
+  echo "Installing crystal..."
+  curl -sSL https://dist.crystal-lang.org/apt/setup.sh | sudo bash
   sudo apt-get install build-essential crystal
 fi
 
 git clone https://github.com/cbrnrd/ezdb
 cd ezdb
 
-echo -e "Building ezdb..."
+echo "Building ezdb..."
 
 make install
 
