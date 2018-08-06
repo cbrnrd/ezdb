@@ -19,7 +19,7 @@ dependencies:
 or grab the install script:
 
 ```
-curl -fsSL https://git.io/vhIl7 | sh
+curl -fsSL https://git.io/ezdb-install | sh
 ```
 
 ## Usage
