@@ -1,5 +1,7 @@
-![ezdb-logo](https://i.imgur.com/v1VghNcl.png)
-# ezdb
+<p align="center"><img src="https://i.imgur.com/jjLPsB3.png" alt="gpm" width="100" height="100"></p>
+
+<h1 align="center">EZDB</h1>
+
 [![Donations Badge](https://yourdonation.rocks/images/badge.svg)](http://carterbrainerd.me/donations/)
 [![Build Status](https://travis-ci.org/cbrnrd/ezdb.svg?branch=master)](https://travis-ci.org/cbrnrd/ezdb)
 ![Lighthouse Score 70/100](https://lighthouse-badge.appspot.com/?score=70)
