@@ -24,6 +24,9 @@ sudo cp services/ezdb.service /lib/systemd/system/ezdb.service
 
 sudo cp man/ezdb.1 /usr/local/share/man/man1/
 
+cd ..
+rm -rf ezdb/
+
 echo -e "Starting ezdb service..."
 
 service ezdb start
