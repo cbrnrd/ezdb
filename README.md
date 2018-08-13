@@ -1,4 +1,4 @@
-<p align="center"><img src="https://i.imgur.com/jjLPsB3.png" alt="gpm" width="100" height="100"></p>
+<p align="center"><img src="https://i.imgur.com/jjLPsB3.png" alt="gpm" width="150" height="150"></p>
 
 <h1 align="center">EZDB</h1>
 
