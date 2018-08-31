@@ -19,7 +19,7 @@ module Command
   }
 
   def self.from(keyw) : Ezdb::Commands::Command
-    raise Ezdb::Command::InvalidCommandException.new("Invalid command: '#{keyw}'")
+    raise Ezdb::Command::InvalidCommandException.new("Invalid command: '#{keyw}'") unless COMMANDS.has_key?(keyw)
     COMMANDS[keyw].new
   end
 end
